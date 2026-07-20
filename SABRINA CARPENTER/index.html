@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabrina Carpenter | Official Vinyl Experience</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #0f0c11;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --accent-pink: #f2849e;
+      --accent-gold: #e5c178;
+      --text-main: #f5f5f7;
+      --text-muted: #a1a1aa;
+      --border: rgba(255, 255, 255, 0.1);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* --- CABEÇALHO E NAVEGAÇÃO --- */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(15, 12, 17, 0.88);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+    }
+
+    .logo {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-main);
+      font-style: italic;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--accent-pink);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: var(--transition);
+    }
+
+    .nav-btn:hover, .nav-btn.active {
+      color: var(--accent-pink);
+      background: rgba(242, 132, 158, 0.1);
+    }
+
+    /* --- CONTEÚDO PRINCIPAL --- */
+    main {
+      margin-top: 85px;
+      min-height: calc(100vh - 160px);
+    }
+
+    .tab-content {
+      display: none;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- HERO / INÍCIO --- */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      min-height: 70vh;
+    }
+
+    .hero-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 4.5rem;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      color: var(--accent-pink);
+      font-weight: 300;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.9rem 2rem;
+      background: linear-gradient(45deg, var(--accent-pink), #d65d79);
+      color: #fff;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(242, 132, 158, 0.3);
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(242, 132, 158, 0.5);
+    }
+
+    .hero-cover {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+      border: 1px solid var(--border);
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* --- SEÇÃO ÁLBUNS --- */
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 3.2rem;
+      color: var(--accent-pink);
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .albums-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .album-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .album-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-pink);
+      box-shadow: 0 15px 35px rgba(242, 132, 158, 0.15);
+    }
+
+    .album-card-img-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .album-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .album-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .vinyl-hint-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(15, 12, 17, 0.8);
+      color: var(--accent-gold);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .album-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .album-year {
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* --- MODAL DO TOCA-DISCOS (VINYL PLAYER) --- */
+    .vinyl-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .vinyl-modal-overlay.active {
+      display: flex;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .vinyl-player-card {
+      background: #17131a;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      max-width: 900px;
+      width: 100%;
+      padding: 2.5rem;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .close-modal-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-modal-btn:hover {
+      background: var(--accent-pink);
+      color: #fff;
+    }
+
+    /* Animação do Vinil Giro */
+    .vinyl-turntable {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vinyl-disc {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, #222 18%, #111 20%, #151515 40%, #050505 60%, #1a1a1a 80%, #000 100%);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: spin 8s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .vinyl-disc.playing {
+      animation-play-state: running;
+    }
+
+    .vinyl-center-label {
+      width: 35%;
+      height: 35%;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      border: 6px solid #111;
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+    }
+
+    .vinyl-hole {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #17131a;
+      border-radius: 50%;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .player-info-side {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+    }
+
+    .player-album-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 2.2rem;
+      color: var(--accent-pink);
+      line-height: 1.1;
+    }
+
+    .player-album-year {
+      color: var(--accent-gold);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tracklist-container {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 1.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .tracklist-container::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .tracklist-container::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+
+    .track-item {
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .track-item:hover, .track-item.active {
+      background: rgba(242, 132, 158, 0.15);
+      border-color: var(--accent-pink);
+      color: #fff;
+    }
+
+    .audio-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(0,0,0,0.3);
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      border: 1px solid var(--border);
+    }
+
+    .play-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent-pink);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: var(--transition);
+    }
+
+    .play-btn:hover {
+      transform: scale(1.08);
+      background: #e06f89;
+    }
+
+    .now-playing-title {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .now-playing-song {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* --- BIOGRAFIA --- */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .bio-img-container img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .bio-content h2 {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 3rem;
+      color: var(--accent-pink);
+      margin-bottom: 1rem;
+    }
+
+    .bio-content p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+
+    /* --- GALERIA DE FOTOS --- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      height: 320px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* --- RODAPÉ --- */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 850px) {
+      .hero, .bio-grid, .vinyl-player-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-title {
+        font-size: 3rem;
+      }
+      .vinyl-turntable {
+        max-width: 220px;
+      }
+      .nav-links {
+        gap: 0.5rem;
+      }
+      .nav-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">Sabrina <span>Carpenter</span></a>
+      <ul class="nav-links">
+        <li><button class="nav-btn active" onclick="switchTab('home')">Início</button></li>
+        <li><button class="nav-btn" onclick="switchTab('bio')">Biografia</button></li>
+        <li><button class="nav-btn" onclick="switchTab('albuns')">Álbuns & Vinil</button></li>
+        <li><button class="nav-btn" onclick="switchTab('galeria')">Galeria</button></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="tab-content active">
+      <div class="hero">
+        <div>
+          <h1 class="hero-title">Short n' Sweet & <em>Beyond.</em></h1>
+          <p class="hero-subtitle">Bem-vindo ao espaço oficial interativo de Sabrina Carpenter. Clique nos álbuns de música para tocar suas canções em formato de disco de vinil clássico!</p>
+          <button class="btn-main" onclick="switchTab('albuns')">
+            <i class="fa-solid fa-compact-disc"></i> Ouvir Discos de Vinil
+          </button>
+        </div>
+        <div>
+          <img src="https://i.pinimg.com/736x/95/eb/94/95eb9413d72c4016e791b424cb92c84d.jpg" alt="Sabrina Hero" class="hero-cover">
+        </div>
+      </div>
+    </section>
+
+    <section id="bio" class="tab-content">
+      <div class="bio-grid">
+        <div class="bio-img-container">
+          <img src="https://i.pinimg.com/736x/75/a5/a9/75a5a9c7c8b3c02d5e129bab0298c982.jpg" alt="Sabrina Biography">
+        </div>
+        <div class="bio-content">
+          <h2>A Arte Pop de Sabrina</h2>
+          <p>Sabrina Annlynn Carpenter é uma das maiores vozes e compositoras do pop mundial moderno. Nascida em 11 de maio de 1999, destacou-se por sua capacidade única de mesclar pop cativante, R&B e letras sarcásticas e vulneráveis.</p>
+          <p>Com sucessos consecutivos ocupando os topos das paradas globais da Billboard e do Spotify, Sabrina consolidou sua trajetória desde os primeiros trabalhos até os álbuns mais recentes e aclamados.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="albuns" class="tab-content">
+      <div class="section-header">
+        <h2>Discografia Completa</h2>
+        <p>Clique em qualquer disco para abrir o Player de Vinil Interativo!</p>
+      </div>
+
+      <div class="albums-grid">
+
+        <div class="album-card" onclick="openVinylPlayer(0)">
+          <div class="album-card-img-wrapper">
+            <span class="vinyl-hint-badge"><i class="fa-solid fa-record-vinyl"></i> Tocar Vinil</span>
+            <img src="https://i.pinimg.com/control1/1200x/b4/a7/41/b4a741e67def5558c00c8f0a01a0afad.jpg" alt="Eyes Wide Open">
+          </div>
+          <h3 class="album-title">Eyes Wide Open</h3>
+          <p class="album-year">2015 • Hollywood Records</p>
+        </div>
+
+        <div class="album-card" onclick="openVinylPlayer(1)">
+          <div class="album-card-img-wrapper">
+            <span class="vinyl-hint-badge"><i class="fa-solid fa-record-vinyl"></i> Tocar Vinil</span>
+            <img src="https://i.pinimg.com/736x/01/1d/6b/011d6b2c167359556395f3b7935bea30.jpg" alt="EVOLution">
+          </div>
+          <h3 class="album-title">EVOLution</h3>
+          <p class="album-year">2016 • Hollywood Records</p>
+        </div>
+
+        <div class="album-card" onclick="openVinylPlayer(2)">
+          <div class="album-card-img-wrapper">
+            <span class="vinyl-hint-badge"><i class="fa-solid fa-record-vinyl"></i> Tocar Vinil</span>
+            <img src="https://i.pinimg.com/control1/1200x/84/82/9e/84829e6af697a49d2b6abbd1a2846042.jpg" alt="Singular Act I">
+          </div>
+          <h3 class="album-title">Singular: Act I</h3>
+          <p class="album-year">2018 • Hollywood Records</p>
+        </div>
+
+        <div class="album-card" onclick="openVinylPlayer(3)">
+          <div class="album-card-img-wrapper">
+            <span class="vinyl-hint-badge"><i class="fa-solid fa-record-vinyl"></i> Tocar Vinil</span>
+            <img src="https://i.pinimg.com/1200x/57/e2/2e/57e22e74d4f4db2803a01f97c7bfb32b.jpg" alt="Singular Act II">
+          </div>
+          <h3 class="album-title">Singular: Act II</h3>
+          <p class="album-year">2019 • Hollywood Records</p>
+        </div>
+
+        <div class="album-card" onclick="openVinylPlayer(4)">
+          <div class="album-card-img-wrapper">
+            <span class="vinyl-hint-badge"><i class="fa-solid fa-record-vinyl"></i> Tocar Vinil</span>
+            <img src="https://i.pinimg.com/control1/1200x/b5/3e/aa/b53eaa49f9672a3236bf1508e8fba1a1.jpg" alt="Emails I Can't Send">
+          </div>
+          <h3 class="album-title">Emails I Can't Send</h3>
+          <p class="album-year">2022 • Island Records</p>
+        </div>
+
+        <div class="album-card" onclick="openVinylPlayer(5)">
+          <div class="album-card-img-wrapper">
+            <span class="vinyl-hint-badge"><i class="fa-solid fa-record-vinyl"></i> Tocar Vinil</span>
+            <img src="https://i.pinimg.com/736x/64/42/ad/6442adb04b33dc6e6b5434fcb06c8d9f.jpg" alt="Short n' Sweet">
+          </div>
+          <h3 class="album-title">Short n' Sweet</h3>
+          <p class="album-year">2024 • Island Records</p>
+        </div>
+
+        <div class="album-card" onclick="openVinylPlayer(6)">
+          <div class="album-card-img-wrapper">
+            <span class="vinyl-hint-badge"><i class="fa-solid fa-record-vinyl"></i> Tocar Vinil</span>
+            <img src="https://i.pinimg.com/736x/d1/24/f2/d124f202487f499a1ec82fac43ed9383.jpg" alt="Man's Best Friend">
+          </div>
+          <h3 class="album-title">Man's Best Friend</h3>
+          <p class="album-year">2025 • Island Records</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="galeria" class="tab-content">
+      <div class="section-header">
+        <h2>Galeria de Fotos</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://i.pinimg.com/control1/736x/4b/e8/a0/4be8a0ae987bbce6ba6898a8202346a5.jpg" alt="1"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/736x/fb/fc/b1/fbfcb1199bfd50d400e5846349acb318.jpg" alt="2"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/control1/1200x/a7/6d/85/a76d85bf781b658c348aaba7705f3fba.jpg" alt="3"></div>
+        <div class="gallery-item"><img src="https://i.pinimg.com/736x/02/82/95/028295d9df8ac5d481c1c897fc22c1b3.jpg" alt="4"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="vinyl-modal-overlay" id="vinylModal">
+    <div class="vinyl-player-card">
+      <button class="close-modal-btn" onclick="closeVinylPlayer()"><i class="fa-solid fa-xmark"></i></button>
+
+      <div class="vinyl-turntable">
+        <div class="vinyl-disc" id="vinylDisc">
+          <div class="vinyl-center-label" id="vinylLabel"></div>
+          <div class="vinyl-hole"></div>
+        </div>
+      </div>
+
+      <div class="player-info-side">
+        <h3 class="player-album-title" id="playerAlbumTitle">Nome do Álbum</h3>
+        <p class="player-album-year" id="playerAlbumYear">Ano do Álbum</p>
+
+        <div class="tracklist-container" id="tracklistContainer">
+          </div>
+
+        <div class="audio-controls">
+          <button class="play-btn" id="playPauseBtn" onclick="togglePlay()"><i class="fa-solid fa-play"></i></button>
+          <div>
+            <div class="now-playing-title">Tocando agora:</div>
+            <div class="now-playing-song" id="nowPlayingSong">Selecione uma faixa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audioPlayer"></audio>
+
+  <footer>
+    <p>© 2026 Sabrina Carpenter Interactive Fan Site. Todos os álbuns e vinis em um só lugar.</p>
+  </footer>
+
+  <script>
+    // DADOS DOS 7 ÁLBUNS E SUAS FAiXAS COM ÁUDIOS DE DEMONSTRAÇÃO
+    const albumsData = [
+      {
+        title: "Eyes Wide Open",
+        year: "2015",
+        cover: "https://i.pinimg.com/control1/1200x/b4/a7/41/b4a741e67def5558c00c8f0a01a0afad.jpg",
+        tracks: [
+          { name: "Eyes Wide Open", duration: "3:12", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+          { name: "Can't Blame a Girl for Trying", duration: "2:49", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "The Middle of Starting Over", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+          { name: "Seamless", duration: "3:06", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+          { name: "We'll Be The Stars", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+          { name: "Two Young Hearts", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+          { name: "Your Love's Like", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+          { name: "Too Young", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+          { name: "Right Now", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+          { name: "Darling I'm a Mess", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+          { name: "White Flag", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+          { name: "Best Thing I Got", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" }
+        ]
+      },
+      {
+        title: "EVOLution",
+        year: "2016",
+        cover: "https://i.pinimg.com/control1/736x/63/f3/bc/63f3bc4af74b7490fcd9117b5f87e266.jpg",
+        tracks: [
+          { name: "On Purpose", duration: "3:58", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
+          { name: "Thumbs", duration: "3:36", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+          { name: "Run and Hide", duration: "3:29", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
+          { name: "Space", duration: "3:17", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Feels Like Loneliness", duration: "3:36", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+          { name: "No Words", duration: "3:36", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+          { name: "Mirage", duration: "3:36", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+          { name: "Don't Want It Back", duration: "3:36", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+          { name: "Shadows", duration: "3:36", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+          { name: "All We Have Is Love", duration: "3:36", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" }
+        ]
+      },
+      {
+        title: "Singular: Act I",
+        year: "2018",
+        cover: "https://i.pinimg.com/control1/1200x/84/82/9e/84829e6af697a49d2b6abbd1a2846042.jpg",
+        tracks: [
+          { name: "Almost Love", duration: "3:32", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" },
+          { name: "Paris", duration: "2:59", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Sue Me", duration: "2:59", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Mona Lisa", duration: "3:25", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3" },
+          { name: "Prfct", duration: "2:46", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3" },
+          { name: "Hold Tight", duration: "2:59", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Bad Time", duration: "2:59", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Diamonds Forever", duration: "2:59", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" }
+        ]
+      },
+      {
+        title: "Singular: Act II",
+        year: "2019",
+        cover: "https://i.pinimg.com/1200x/57/e2/2e/57e22e74d4f4db2803a01f97c7bfb32b.jpg",
+        tracks: [
+          { name: "In My Bed", duration: "3:09", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3" },
+          { name: "Exhale", duration: "2:44", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" },
+          { name: "Looking at Me", duration: "3:01", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3" },
+          { name: "I Can't Stop Me", duration: "3:41", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3" },
+          { name: "Pushing 20", duration: "2:44", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" },
+          { name: "I'm Fakin", duration: "2:44", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" },
+          { name: "Take Off All Your Cool", duration: "2:44", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" },
+          { name: "Tell Em", duration: "2:44", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" },
+          { name: "Take You Back", duration: "2:44", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3" }
+        ]
+      },
+      {
+        title: "Emails I Can't Send",
+        year: "2022",
+        cover: "https://i.pinimg.com/control1/1200x/b5/3e/aa/b53eaa49f9672a3236bf1508e8fba1a1.jpg",
+        tracks: [
+          { name: "emails i can't send", duration: "1:44", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+          { name: "Vicious", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Nonsense", duration: "2:43", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+          { name: "Feather", duration: "3:05", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+          { name: "Because I Liked a Boy", duration: "3:16", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
+          { name: "Read Your Mind", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Tornado Warnings", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Already Over", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "How Many Things", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Bet u Wanna", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Fast Times", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Skinny Dipping", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Bad For Business", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Decode", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Opposite", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Lonesome", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+          { name: "Things I Wish You Said", duration: "2:30", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+        ]
+      },
+      {
+        title: "Short n' Sweet",
+        year: "2024",
+        cover: "https://i.pinimg.com/736x/64/42/ad/6442adb04b33dc6e6b5434fcb06c8d9f.jpg",
+        tracks: [
+          { name: "Espresso", duration: "2:55", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
+          { name: "Please Please Please", duration: "3:06", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
+          { name: "Taste", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Bed Chem", duration: "2:51", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" },
+          { name: "Good Graces", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Sharpest Tool", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Coincidence", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Dumb & Poetic", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Slim Pickins", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Juno", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Lie To Girls", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Don't Smile", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "15 Minutes", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Couldn't Make It Any Harder", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Busy Woman", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
+          { name: "Bad Reviews", duration: "2:37", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" }
+        ]
+      },
+      {
+        title: "Man's Best Friend",
+        year: "2025",
+        cover: "https://i.pinimg.com/736x/d1/24/f2/d124f202487f499a1ec82fac43ed9383.jpg",
+        tracks: [
+          { name: "Tears", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Manchild", duration: "2:58", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3" },
+          { name: "My Man on Willpower", duration: "3:22", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3" },
+          { name: "Sugar Talking", duration: "3:04", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3" },
+          { name: "We Almost Broke Up Again", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Nobody's Son", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Never Getting Laid", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "When Did You Get Hot?", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Go Go Juice", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Don't Worry I'll Make You Worry", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "House Tour", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Goodbye", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+          { name: "Such a Funny Way", duration: "3:10", src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" }
+        ]
+      }
+    ];
+
+    // VARIÁVEIS DO PLAYER DE ÁUDIO
+    let currentAlbumIndex = 0;
+    let currentTrackIndex = 0;
+    const audio = document.getElementById('audioPlayer');
+    const vinylDisc = document.getElementById('vinylDisc');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+
+    // MUDAR DE ABA
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ABRIR O PLAYER DE VINIL INTERATIVO
+    function openVinylPlayer(albumIndex) {
+      currentAlbumIndex = albumIndex;
+      const album = albumsData[albumIndex];
+
+      document.getElementById('playerAlbumTitle').innerText = album.title;
+      document.getElementById('playerAlbumYear').innerText = album.year;
+      document.getElementById('vinylLabel').style.backgroundImage = `url('${album.cover}')`;
+
+      // Renderizar Faixas
+      const container = document.getElementById('tracklistContainer');
+      container.innerHTML = '';
+
+      album.tracks.forEach((track, index) => {
+        const item = document.createElement('div');
+        item.className = `track-item ${index === 0 ? 'active' : ''}`;
+        item.innerHTML = `<span>${index + 1}. ${track.name}</span> <span>${track.duration}</span>`;
+        item.onclick = () => selectTrack(index);
+        container.appendChild(item);
+      });
+
+      document.getElementById('vinylModal').classList.add('active');
+      selectTrack(0);
+    }
+
+    // FECHAR MODAL DO VINIL
+    function closeVinylPlayer() {
+      document.getElementById('vinylModal').classList.remove('active');
+      audio.pause();
+      vinylDisc.classList.remove('playing');
+      playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+    }
+
+    // SELECCIONAR MÚSICA
+    function selectTrack(trackIndex) {
+      currentTrackIndex = trackIndex;
+      const track = albumsData[currentAlbumIndex].tracks[trackIndex];
+
+      // Atualizar classe ativa na lista
+      const items = document.querySelectorAll('.track-item');
+      items.forEach((item, idx) => {
+        if(idx === trackIndex) item.classList.add('active');
+        else item.classList.remove('active');
+      });
+
+      document.getElementById('nowPlayingSong').innerText = track.name;
+      audio.src = track.src;
+      playAudio();
+    }
+
+    // ALTERNAR PLAY / PAUSE
+    function togglePlay() {
+      if (audio.paused) {
+        playAudio();
+      } else {
+        pauseAudio();
+      }
+    }
+
+    function playAudio() {
+      audio.play();
+      vinylDisc.classList.add('playing');
+      playPauseBtn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+    }
+
+    function pauseAudio() {
+      audio.pause();
+      vinylDisc.classList.remove('playing');
+      playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+    }
+
+    // Quando o áudio terminar
+    audio.onended = function() {
+      vinylDisc.classList.remove('playing');
+      playPauseBtn.innerHTML = '<i class="fa-solid fa-play"></i>';
+    };
+  </script>
+</body>
+</html>

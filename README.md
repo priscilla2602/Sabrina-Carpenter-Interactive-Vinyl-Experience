@@ -27,7 +27,7 @@ Este projeto foi construído utilizando apenas as tecnologias base da web, sem f
 
 ---
 
-## 🚀 Como executar o projeto localmente
+## 🚀 Como executar o projeto 
 
 Como o projeto é feito com arquivos estáticos, rodá-lo é extremamente simples:
 
